@@ -10,6 +10,7 @@ services:
       - mongo_data:/data/db
 
   catalog.api:
+    container_name: catalog.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - "DatabaseSettings:ConnectionString=mongodb://catalogdb:27017"
@@ -17,3 +18,13 @@ services:
       - catalogdb
     ports:
       - "8000:80"
+
+  basket.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+    ports:
+      - "80"
+      - "443"
+    volumes:
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
