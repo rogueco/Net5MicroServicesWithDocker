@@ -9,11 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{4D5E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Api", "Catalog.Api\Catalog.Api.csproj", "{5486790B-4EEB-4CC2-BCD0-90871313B3D3}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{AB7A9D2A-0044-4F83-B37E-DB24530FCC79}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basket", "Basket", "{47565E51-4841-4E43-B428-2D8576381E71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basket.Api", "Services\Basket\Basket.Api\Basket.Api.csproj", "{244CCE39-5CB8-41F6-8EB2-43CF9C4894E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basket.Api", "Services\Basket\Basket.Api\Basket.Api.csproj", "{244CCE39-5CB8-41F6-8EB2-43CF9C4894E6}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{25C56ABF-56F0-492E-BE33-E0F0421EC6D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,14 +25,14 @@ Global
 		{5486790B-4EEB-4CC2-BCD0-90871313B3D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5486790B-4EEB-4CC2-BCD0-90871313B3D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5486790B-4EEB-4CC2-BCD0-90871313B3D3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AB7A9D2A-0044-4F83-B37E-DB24530FCC79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB7A9D2A-0044-4F83-B37E-DB24530FCC79}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB7A9D2A-0044-4F83-B37E-DB24530FCC79}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB7A9D2A-0044-4F83-B37E-DB24530FCC79}.Release|Any CPU.Build.0 = Release|Any CPU
 		{244CCE39-5CB8-41F6-8EB2-43CF9C4894E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{244CCE39-5CB8-41F6-8EB2-43CF9C4894E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{244CCE39-5CB8-41F6-8EB2-43CF9C4894E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{244CCE39-5CB8-41F6-8EB2-43CF9C4894E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25C56ABF-56F0-492E-BE33-E0F0421EC6D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25C56ABF-56F0-492E-BE33-E0F0421EC6D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25C56ABF-56F0-492E-BE33-E0F0421EC6D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25C56ABF-56F0-492E-BE33-E0F0421EC6D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
