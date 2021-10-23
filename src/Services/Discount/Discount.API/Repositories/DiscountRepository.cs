@@ -57,7 +57,7 @@ namespace Discount.API.Repositories
         {
             await using NpgsqlConnection connection = new NpgsqlConnection(_configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
 
-            int affected = await connection.ExecuteAsync("UPDATE Coupon SET ProductName=@ProductName, Description=@Description, Amount=@Amount WHERE Id = @Id)",
+            int affected = await connection.ExecuteAsync("UPDATE Coupon SET ProductName=@ProductName, Description=@Description, Amount=@Amount WHERE Id = @Id",
                 new { ProductName = coupon.ProductName, Description = coupon.Description, Amount = coupon.Amount, Id = coupon.Id });
 
             return affected != 0;
@@ -67,7 +67,7 @@ namespace Discount.API.Repositories
         {
             await using NpgsqlConnection connection = new NpgsqlConnection(_configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
 
-            int affected = await connection.ExecuteAsync("DELETE FROM Coupon WHERE ProductName = @ProductName)",
+            int affected = await connection.ExecuteAsync("DELETE FROM Coupon WHERE ProductName = @ProductName",
                 new { ProductName = productName });
 
             return affected != 0;
