@@ -28,7 +28,7 @@ services:
       context: .
       dockerfile: Services/Basket/Basket.Api/Dockerfile
 
-  dicount.api:
+  discount.api:
     image: ${DOCKER_REGISTRY-}discountapi
     build:
       context: .

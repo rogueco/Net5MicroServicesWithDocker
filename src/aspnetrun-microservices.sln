@@ -17,7 +17,7 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Discount", "Discount", "{5B2ADA91-43BB-4BD9-9E81-1D7731FFA372}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discount.API", "Services\Discount\Discount.API\Discount.API.csproj", "{D431A6B2-D0ED-4C08-86A9-E17889774303}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discount.Api", "Services\Discount\Discount.API\Discount.Api.csproj", "{D431A6B2-D0ED-4C08-86A9-E17889774303}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
