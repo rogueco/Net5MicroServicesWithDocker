@@ -27,7 +27,7 @@ namespace Discount.Grpc.Services
         {
             _discountRepository = discountRepository ?? throw new ArgumentNullException(nameof(discountRepository));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            _mapper = mapper;
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
         public override async Task<CouponModel> GetDiscount(GetDiscountRequest request, ServerCallContext context)
@@ -37,11 +37,11 @@ namespace Discount.Grpc.Services
             {
                 throw new RpcException(new Status(StatusCode.NotFound, $"Discount with ProductName={request.ProductName} is not found."));
             }
+
             _logger.LogInformation("Discount is retrieved for ProductName : {productName}, Amount : {amount}", coupon.ProductName, coupon.Amount);
 
             var couponModel = _mapper.Map<CouponModel>(coupon);
             return couponModel;
         }
     }
-    
 }
