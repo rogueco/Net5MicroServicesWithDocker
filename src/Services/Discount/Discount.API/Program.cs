@@ -1,14 +1,8 @@
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Discount.API.Extensions;
+using Discount.Api.Extensions;
 
-namespace Discount.API
+namespace Discount.Api
 {
     public class Program
     {

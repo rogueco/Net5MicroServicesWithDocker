@@ -8,9 +8,9 @@
 // -----------------------------------------------------------------------
 
 using System.Threading.Tasks;
-using Discount.API.Entities;
+using Discount.Api.Entities;
 
-namespace Discount.API.Repositories
+namespace Discount.Api.Repositories
 {
     public interface IDiscountRepository
     {

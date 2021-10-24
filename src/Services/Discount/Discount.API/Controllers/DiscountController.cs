@@ -9,11 +9,11 @@
 
 using System.Net;
 using System.Threading.Tasks;
-using Discount.API.Entities;
-using Discount.API.Repositories;
+using Discount.Api.Entities;
+using Discount.Api.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Discount.API.Controllers
+namespace Discount.Api.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]

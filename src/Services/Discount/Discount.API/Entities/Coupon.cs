@@ -7,7 +7,7 @@
 // </author>
 // -----------------------------------------------------------------------
 
-namespace Discount.API.Entities
+namespace Discount.Api.Entities
 {
     public class Coupon
     {
