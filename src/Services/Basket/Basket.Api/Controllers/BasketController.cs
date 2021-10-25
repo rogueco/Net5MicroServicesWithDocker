@@ -1,8 +1,11 @@
 using System.Net;
 using System.Threading.Tasks;
 using Basket.Api.Entities;
+using Basket.Api.GrpcServices;
 using Basket.Api.Repositories;
+using Discount.Grpc.Protos;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic;
 
 namespace Basket.Api.Controllers
 {
@@ -11,14 +14,16 @@ namespace Basket.Api.Controllers
     public class BasketController : ControllerBase
     {
         private readonly IBasketRepository _basketRepository;
+        private readonly DiscountGrpcService _discountGrpcService;
 
-        public BasketController(IBasketRepository basketRepository)
+        public BasketController(IBasketRepository basketRepository, DiscountGrpcService discountGrpcService)
         {
             _basketRepository = basketRepository;
+            _discountGrpcService = discountGrpcService;
         }
 
         [HttpGet("{userName}", Name = "GetBasket")]
-        [ProducesResponseType(typeof(ShoppingCart), (int) HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(ShoppingCart), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<ShoppingCart>> GetBasket(string userName)
         {
             ShoppingCart basket = await _basketRepository.GetBasket(userName);
@@ -32,13 +37,20 @@ namespace Basket.Api.Controllers
         {
             // TODO: Communicate with Discount.Grpc
             // TODO: Calculate latest prices of product into shopping cart.
+            // Consume Discount Grpc
+
+            foreach (var item in shoppingCart.Items)
+            {
+                CouponModel coupon = await _discountGrpcService.GetDiscount(item.ProductName);
+                item.Price -= coupon.Amount;
+            }
+
             return Ok(await _basketRepository.UpdateBasket(basket: shoppingCart));
         }
 
 
-
         [HttpDelete("{userName}", Name = "DeleteBasket")]
-        [ProducesResponseType(typeof(ShoppingCart), (int) HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(ShoppingCart), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> DeleteBasket(string userName)
         {
             await _basketRepository.DeleteBasket(userName);
