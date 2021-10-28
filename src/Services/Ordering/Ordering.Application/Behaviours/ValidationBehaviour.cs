@@ -32,7 +32,7 @@ namespace Ordering.Application.Behaviours
         {
             if (_validators.Any())
             {
-                ValidationContext<TRequest> context = new ValidationContext<TRequest>(request);
+                ValidationContext<TRequest> context = new(request);
 
                 ValidationResult[] validationResults = await Task.WhenAll(_validators.Select(v => v.ValidateAsync(context, cancellationToken)));
                 List<ValidationFailure> failures = validationResults.SelectMany(r => r.Errors).Where(f => f != null).ToList();
