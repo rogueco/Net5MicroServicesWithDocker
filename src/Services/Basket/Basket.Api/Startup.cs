@@ -27,22 +27,18 @@ namespace Basket.Api
             //services.AddStackExchangeRedisCache(options => { options.Configuration = Configuration.GetConnectionString("ConnectionString"); });
             // Redis Configuration
             services.AddStackExchangeRedisCache(options => { options.Configuration = Configuration.GetValue<string>("CacheSettings:ConnectionString"); });
-           
+
+            // General Configuration
             services.AddScoped<IBasketRepository, BasketRepository>();
-            services.AddScoped<DiscountGrpcService>();
-            
+
+            // GRPC Configuration
             services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(options => options.Address = new Uri(Configuration["GrpcSettings:DiscountUrl"]));
+            services.AddScoped<DiscountGrpcService>();
 
             // Masstransit with RabbitMQ Configuration
-            services.AddMassTransit(config =>
-            {
-                config.UsingRabbitMq((context, configurator) =>
-                {
-                    configurator.Host(Configuration["EventBusSettings:HostAddress"]);
-                });
-            });
+            services.AddMassTransit(config => { config.UsingRabbitMq((context, configurator) => { configurator.Host(Configuration["EventBusSettings:HostAddress"]); }); });
             services.AddMassTransitHostedService();
-            
+
             services.AddControllers();
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo { Title = "Basket.Api", Version = "v1" }); });
         }
