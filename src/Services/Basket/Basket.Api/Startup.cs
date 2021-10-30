@@ -38,9 +38,10 @@ namespace Basket.Api
             {
                 config.UsingRabbitMq((context, configurator) =>
                 {
-                    configurator.Host("amqp://guest:guest@localhost:5672");
+                    configurator.Host(Configuration["EventBusSettings:HostAddress"]);
                 });
             });
+            services.AddMassTransitHostedService();
             
             services.AddControllers();
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo { Title = "Basket.Api", Version = "v1" }); });
