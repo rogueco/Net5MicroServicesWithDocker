@@ -1,3 +1,4 @@
+using MassTransit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -28,6 +29,10 @@ namespace Ordering.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Ordering.Api", Version = "v1" });
             });
+            
+            // Masstransit with RabbitMQ Configuration
+            services.AddMassTransit(config => { config.UsingRabbitMq((context, configurator) => { configurator.Host(Configuration["EventBusSettings:HostAddress"]); }); });
+            services.AddMassTransitHostedService();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
