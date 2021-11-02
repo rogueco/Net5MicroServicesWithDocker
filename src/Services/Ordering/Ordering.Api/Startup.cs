@@ -32,6 +32,7 @@ namespace Ordering.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Ordering.Api", Version = "v1" });
             });
             
+            
             // Masstransit with RabbitMQ Configuration
             services.AddMassTransit(config =>
             {
@@ -46,6 +47,10 @@ namespace Ordering.Api
                 });
             });
             services.AddMassTransitHostedService();
+            
+            
+            // General Configuration
+            services.AddAutoMapper(typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
