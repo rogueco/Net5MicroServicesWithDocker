@@ -16,7 +16,7 @@ namespace Shopping.Aggregator.Services.Implementations
             _httpClient = httpClient;
         }
 
-        public async Task<IEnumerable<OrderResponseModel>> GetOrderByUserName(string userName)
+        public async Task<IEnumerable<OrderResponseModel>> GetOrdersByUserName(string userName)
         {
             HttpResponseMessage response = await _httpClient.GetAsync($"/api/v1/Order/{userName}");
             return await response.ReadContentAs<List<OrderResponseModel>>();

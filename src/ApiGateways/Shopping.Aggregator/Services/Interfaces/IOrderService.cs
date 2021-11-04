@@ -6,6 +6,6 @@ namespace Shopping.Aggregator.Services.Interfaces
 {
     public interface IOrderService
     {
-        Task<IEnumerable<OrderResponseModel>> GetOrderByUserName(string userName);
+        Task<IEnumerable<OrderResponseModel>> GetOrdersByUserName(string userName);
     }
 }
