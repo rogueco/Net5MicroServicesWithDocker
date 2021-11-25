@@ -7,7 +7,7 @@ using AspnetRunBasics.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace AspnetRunBasics
+namespace AspnetRunBasics.Pages
 {
     public class ProductModel : PageModel
     {
@@ -47,10 +47,10 @@ namespace AspnetRunBasics
 
         public async Task<IActionResult> OnPostAddToCartAsync(string productId)
         {
-            var product = await _catalogService.GetCatalog(productId);
+            CatalogModel product = await _catalogService.GetCatalog(productId);
 
-            var userName = "swn";
-            var basket = await _basketService.GetBasket(userName);
+            string userName = "swn";
+            BasketModel basket = await _basketService.GetBasket(userName);
 
             basket.Items.Add(new BasketItemModel
             {
