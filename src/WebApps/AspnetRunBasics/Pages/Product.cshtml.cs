@@ -7,7 +7,7 @@ using AspnetRunBasics.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace AspnetRunBasics.Pages
+namespace AspnetRunBasics
 {
     public class ProductModel : PageModel
     {
