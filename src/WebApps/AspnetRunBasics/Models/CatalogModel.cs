@@ -6,7 +6,7 @@ namespace AspnetRunBasics.Models
 
         public string Name { get; set; }
 
-        public string Catagory { get; set; }
+        public string Category { get; set; }
 
         public string Summary { get; set; }
 
